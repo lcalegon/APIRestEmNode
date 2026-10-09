@@ -1,8 +1,12 @@
-import app from "./src/app.js";
+import dns from "node:dns";
+import "dotenv/config";
 
-const PORT = 3000;
+dns.setServers(["8.8.8.8"]);
 
+const { default: app } = await import("./src/app.js");
+
+const PORT = process.env.PORT;
 
 app.listen(PORT, () => {
-    console.log("Server Listen")
-});
+    console.log("Server Listening!");
+}); 
