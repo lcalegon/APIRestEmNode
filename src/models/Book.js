@@ -1,11 +1,12 @@
 import mongoose from "mongoose";
+import { publisherSchema } from "./Publisher.js"
 
 const bookSchema = new mongoose.Schema({
     id: { type:mongoose.Schema.Types.ObjectId },
     title: { type:String, required:true},
-    publisher: { type:String },
     price: { type: Number },
-    pages: { type: Number }
+    pages: { type: Number },
+    publisher: publisherSchema
 }, { versionKey: false });
 
 
